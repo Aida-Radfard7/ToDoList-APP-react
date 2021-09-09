@@ -1,0 +1,27 @@
+
+.addTask-section{
+    margin-left: 34%!important;
+    padding-top: 90px!important;
+}
+
+#input-Task{
+    border: 1px solid var(--color)!important;
+    border-radius: var(--border-radius);
+    width: 60%!important;
+    outline: none;
+}
+
+.addTask-section-btn button{
+    border: none;
+    outline: none;
+    background-color: var(--background-color)!important;
+    opacity: .8;
+    border-radius: var(--border-radius);
+    color: #ffffff;
+    margin: 5px;
+    padding: 5px;
+}
+
+.addTask-section-btn button:hover{
+    opacity: 1;
+}

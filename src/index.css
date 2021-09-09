@@ -1,0 +1,232 @@
+@import './assets/bootstrap.min.css';
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+:root{
+  --background-color: rgb(162, 93, 226);
+  --border-radius: 4px;
+  --color:rgb(162, 93, 226);
+}
+
+.text-purple{
+  color: rgb(154, 145, 161);
+}
+
+.themes{
+  position: fixed;
+  right: 10px;
+  bottom: 25px;
+}
+
+.theme{
+  height: 30px;
+  width: 30px;
+  border-radius: 40px;
+  z-index: 100;
+  margin: 5px;
+  cursor: pointer;
+}
+
+#blue-theme{
+  background-color: rgb(28, 143, 137); 
+}
+
+#red-theme{
+  background-color: rgb(173, 29, 53);
+}
+
+#green-theme{
+  background-color: rgb(16, 150, 67);
+}
+
+#dark-theme{
+  background-color: rgb(8, 44, 42);
+}
+
+#purple-theme{
+  background-color: rgb(162, 93, 226);
+}
+
+.app-holder{
+  width: 100%;
+}
+
+.navbar{
+  width: 100%;
+  background-color: var(--background-color);
+  border-radius: 0px!important;
+  z-index: 1000;
+}
+
+a{
+  text-decoration: none!important;
+}
+
+.navbar a{
+  color: #ffffff!important;
+}
+
+li{
+  list-style-type: none;
+}
+
+.header-form{
+  margin: 0px;
+  margin-left: 7px;
+}
+
+.header-form input{
+  border-radius: var(--border-radius);
+  opacity: .8;
+  padding: 4px;
+  padding-left: 10px;
+  width: 400px;
+  border: none;
+  outline: none;
+}
+
+.header-form input:hover{
+  opacity: 1;
+  border: none;
+  outline: none;
+}
+
+.header-form input:focus{
+  border-color: rgba(126, 239, 104, 0.8);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
+  outline: 0 none;
+  border: none;
+}
+
+.header-form i{
+  position: relative;
+  right: 28px;
+  top: 9px;
+  color: var(--background-color);
+}
+
+.navbar-bar,
+.navbar-home,
+.navbar-plus ,
+.navbar-bell{
+  font-size: 20px;
+  font-weight: 600;
+  z-index: 10;
+}
+
+.navbar ul li{
+  padding: 2px;
+  background-color: inherit;
+  border-radius: var(--border-radius);
+}
+
+.navbar ul li:hover{
+  background-color: rgba(255, 255, 255, .1);
+}
+
+.main{
+  width: 82%;
+  float: right;
+}
+
+.side-bar{
+  width: 18%;
+  height: 720px;
+  float: left;
+  position: fixed;
+}
+
+.nav-tooltip{
+  position: relative;
+}
+
+.tooltip-text{
+  visibility: hidden;
+  position: absolute;
+  width: 110px;
+  font-size: 13px;
+  background-color: rgb(148, 134, 146);
+  color: #fff;
+  text-align: center;
+  border-radius: var(--border-radius);
+  padding: 5px 0;
+  z-index: 1;
+  top: 30px;
+  right: -90%;
+}
+
+.nav-tooltip:hover .tooltip-text{
+  visibility: visible;
+}
+
+.side-menu  i{
+  color: var(--color);
+}
+
+.side-menu section{
+  border-radius: var(--border-radius);
+  width: 100%;
+}
+
+.side-menu section:hover{
+  background-color: #ffffff;
+}
+
+/* make tha app responsive */
+
+@media screen and (max-width: 480px) {
+  .main{
+      width: 74%;
+  }    
+  .side-bar{
+      width: 26%;
+  }
+  .side-menu ul{
+      padding-left:15px!important;
+  }
+  .theme{
+      height: 15px;
+      width: 15px;
+      margin: 3px;
+  }
+  .header-form input{
+      width: 200px;
+  }
+
+}
+
+@media screen and (max-width: 660px) {
+  .side-menu ul{
+      padding-left:15px!important;
+  }
+  .main{
+      width: 78%;
+  }    
+  .side-bar{
+      width: 22%;
+  }
+  .theme{
+      height: 15px;
+      width: 15px;
+      margin: 3px;
+  }
+  
+}
+
+@media screen and (min-width: 750px) and (max-width: 950px) {
+  .side-menu ul{
+      padding-left:15px!important;
+  }
+} 

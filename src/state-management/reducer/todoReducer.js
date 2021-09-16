@@ -1,4 +1,4 @@
-import {TODO_ADD , TODO_DELETE , TODO_EDIT} from '../actions/actionTypes';
+import {TODO_ADD , TODO_DELETE , TODO_EDIT, UPDATE_LIST} from '../actions/actionTypes';
 
 
 const todoReducer = function(state = [] , action){
@@ -13,6 +13,9 @@ const todoReducer = function(state = [] , action){
         case TODO_EDIT:
             state.splice(action.payload.index , 1 , action.payload.value);
             return [...state];
+
+        case UPDATE_LIST:
+            return [...action.payload]    
 
         default:
             return state;

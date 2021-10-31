@@ -3,8 +3,9 @@ import '../assets/addToDoBox.css';
 import {useDispatch} from 'react-redux'
 import {todoAdd} from '../state-management/actions/todoAction';
 import {useHistory} from "react-router-dom";
+import { ToDos } from "./ToDos";
 
-export const AddToDoBox = () => {
+export const AddToDoBox = ({isHide , isDark}) => {
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -17,34 +18,34 @@ export const AddToDoBox = () => {
   const insert = (todo) =>{
     if(todo !== ""){
     dispatch(todoAdd(todo))
-    todoInput.current.value = "" ;
+    todoInput.current.innerHTML = "" ;
     todoInput.current.focus();
     }
   }
 
   return (
-    <>
-      <section id="slideDown-addTask">
+    <section className={isHide ? "main mt-5 hide-sideBar" : "main mt-5"}>
+      <section id="slideDown-addTask" >
         <section className="addTask-section">
-          <input
+          <div
             ref={todoInput}
             id="input-Task"
             className="w-100 h-50 p-2 border-0"
-            type="text"
-            placeholder="Write what you want to do..."
-            maxlength="50"
-          />
-        <section className="addTask-section-btn my-2">
-          <button onClick={() => insert(todoInput.current.value)} id="addBtn" className=" px-3">
+            role='textbox'
+            contentEditable
+            data-placeholder="Write what you want to do..."
+          ></div>
+        <section className="addTask-section-btn mt-2 mb-3">
+          <button onClick={() => insert(todoInput.current.innerHTML)} id="addBtn" className=" px-3">
             Add
           </button>
           <button onClick={() => history.goBack()} id="cancelBtn" className=" px-2">
             Cancel
-          </button>
+          </button> 
         </section>
         </section>
       </section>
-
-    </>
+      <ToDos isHide={isHide} isDark={isDark} />
+    </section>
   );
 };

@@ -1,4 +1,4 @@
-import React from "react";
+import {React , useState} from "react";
 import "../assets/layout.css";
 import "../assets/inbox.css";
 import { Inbox } from "../views/Inbox";
@@ -6,73 +6,117 @@ import { Switch, Route, Link } from "react-router-dom";
 import { SideBar } from "../views/SideBar";
 import { AddToDoBox } from "../views/AddToDoBox";
 import { PageTitle } from "../views/PageTitle";
-import { ToDos } from "../views/ToDos";
 import { Today } from "../views/Today";
 import { Theme } from "../views/Theme";
-import { ExistingList } from "../views/ExistingList";
+import { Board } from "../views/Board/Board";
+import { useSelector } from "react-redux";
+import { Welcome } from "../views/Welcome";
+
 
 export const Layout = () => {
+
+  const [isHide , setIsHide] = useState(false);
+  const login = useSelector((store) => store.loginState);
+  const dark = useSelector(store => store.themeState);
+
+  var board = window.location.href == "http://localhost:3000/board";
+
+  function hideAndShowMenu() {
+    const aside = document.getElementById("aside");
+    const menuTooltip = document.getElementById("menu-tooltip");
+    if (aside.style.display === "none") {
+        aside.style.display = "block";
+        menuTooltip.innerHTML = "Close Menu";
+        setIsHide(false)
+    } else {
+        aside.style.display = "none";
+        menuTooltip.innerHTML = "Open Menu";
+        setIsHide(true);
+    }
+  }
+
   return (
     <>
       <PageTitle title="To do list" />
-      <section className="todolist-app">
+      <section className={dark[1] == true ? "todolist-app content-bg-dark" : "todolist-app "}>
         <section className="app-holder">
           <section className="navbar navbar-expand px-5 mb-0 d-flex align-items-center justify-content-between position-fixed">
             <section className="header-nav-left-side d-flex align-items-center p-0">
               <ul className="d-flex align-items-center mb-0 p-0">
                 <li className="nav-tooltip">
-                  <a className="navbar-bar mx-2" href="#">
+                  <Link onClick={() => hideAndShowMenu()} className="navbar-bar mx-2">
                     <i className="fas fa-bars"></i>
-                  </a>
+                  </Link>
                   <span id="menu-tooltip" className="tooltip-text">
                     Close Menu
                   </span>
                 </li>
 
                 <li className="nav-tooltip">
-                  <a className="navbar-home mx-2" href="#">
+                  <Link to="/" className="navbar-home mx-2">
                     <i className="fas fa-home"></i>
-                  </a>
+                  </Link>
                   <span className="tooltip-text">Go To Home</span>
                 </li>
               </ul>
-              <form className="header-form" action="">
-                <section className="d-flex">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="find..."
-                  />
-                  <i type="submit" className="fa fa-search"></i>
-                </section>
-              </form>
+              {!board
+                ? ( <form className="header-form" action="">
+                      <section className="d-flex">
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="find..."
+                        />
+                        <i type="submit" className="fa fa-search"></i>
+                      </section>              
+                    </form>)
+                  : null
+              }
             </section>
+
+            {board
+              ? (<section>
+                  <h3 className="text-light m-0">Board</h3>
+                 </section>)
+              :null
+            }
 
             <section className="header-nav-right-side">
               <ul className=" d-flex align-content-center m-0 p-0">
-                <li className="nav-tooltip">
-                  <Link to="/AddToDo" className="navbar-plus mx-2">
+                <li className={board ? "d-none" :"nav-tooltip"}>
+                  <Link to="/addToDo" className="navbar-plus mx-2">
                     <i className="fa fa-plus"></i>
                   </Link>
                   <span className="tooltip-text">Quick Add Task</span>
                 </li>
 
-                <li className="nav-tooltip">
-                  <a className="navbar-bell mx-2" href="#">
-                    <i className="fa fa-user"></i>
-                  </a>
-                  <span className="tooltip-text">Sign In</span>
-                </li>
+                {login[0] 
+                ? (<li className="nav-tooltip">
+                    <Link to="/Login">
+                      <p className=" username m-0 text-light">{login[0].username}</p>
+                    </Link>
+                    <span className="tooltip-text user-email-tooltip">{login[0].email}</span>
+                  </li>)
+                :(<li className="nav-tooltip">
+                    <Link to="/Login" className="navbar-bell mx-2" href="#">
+                      <i className="fa fa-user"></i>
+                    </Link>
+                    <span className="tooltip-text">Sign In</span>
+                  </li>)
+                }
+
               </ul>
             </section>
           </section>
 
           <main>
-            <Route path="/inbox" component={Inbox} />
-            <Route path="/today" component={Today} />
+            <Route path="/inbox" component={() => <Inbox isHide={isHide} />} /> 
+            <Route path="/today" component={() => <Today isHide={isHide} />} />
+            <Route path="/board" component={() => <Board isHide={isHide} />} />
+            <Route path="/addToDo" component={() => <AddToDoBox isHide={isHide} isDark={dark} />} />
           </main>
 
-          <aside>
+          <aside id="aside">
             <SideBar />
           </aside>
 
@@ -82,14 +126,11 @@ export const Layout = () => {
         </section>
       </section>
 
+
       <Switch>
-        <Route path="/" exact component={ExistingList} />
-        <Route path="/AddToDo" component={AddToDoBox} />
+        <Route path='/' exact component={() => <Welcome />} />
       </Switch>
 
-      {/* show to dos when page is loaded for fist time */}
-      <ToDos />
-  
     </>
   );
 };

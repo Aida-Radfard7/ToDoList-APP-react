@@ -1,7 +1,12 @@
 .todos-list{
-    width: 50%;
-    margin-left:31%!important;
+    width: 60%;
     padding-top: 30px!important;
+}
+.hide-sideBar{
+    margin-left:18%!important;
+}
+.show-sideBar{
+    margin-left:16%!important;
 }
 
 .task-Counter{
@@ -9,7 +14,6 @@
     margin: 0px 10px 0px 0px;
     border: 2px solid var(--color);
     border-radius: 30px;
-    
 }
 
 .task-Counter:hover{
@@ -18,7 +22,13 @@
 }
 
 .todos-list ul{
-  padding-top: 20px;
+  padding: 10px;
+  border-radius: var(--border-radius);
+}
+
+/* dark mode styles  */
+.dark-box{
+    background-color: rgb(219, 219, 219);
 }
 
 .todos-list ul li{
@@ -51,4 +61,21 @@
     opacity: .7;
     background-color: var(--background-color);
     color: #ffffff;
+}
+
+.todo-holder{
+    height: 400px;
+    overflow: auto;
+}
+::-webkit-scrollbar {
+    width: 10px;
+}            
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px grey;
+}                  
+::-webkit-scrollbar-thumb {
+    border-radius: 10px; 
+    background-color: var(--background-color);
+    height: 20px;
 }

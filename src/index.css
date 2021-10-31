@@ -15,9 +15,9 @@ code {
 }
 
 :root{
-  --background-color: rgb(162, 93, 226);
+  --background-color: rgb(173, 29, 53);
   --border-radius: 4px;
-  --color:rgb(162, 93, 226);
+  --color:rgb(173, 29, 53);
 }
 
 .text-purple{
@@ -28,13 +28,13 @@ code {
   position: fixed;
   right: 10px;
   bottom: 25px;
+  z-index: 1000;
 }
 
 .theme{
   height: 30px;
   width: 30px;
   border-radius: 40px;
-  z-index: 100;
   margin: 5px;
   cursor: pointer;
 }
@@ -56,7 +56,7 @@ code {
 }
 
 #purple-theme{
-  background-color: rgb(162, 93, 226);
+  background-color: rgb(128, 0, 96);
 }
 
 .app-holder{
@@ -138,6 +138,7 @@ li{
 
 .main{
   width: 82%;
+  height: 664px;
   float: right;
 }
 
@@ -155,16 +156,20 @@ li{
 .tooltip-text{
   visibility: hidden;
   position: absolute;
-  width: 110px;
+  width: max-content;
   font-size: 13px;
-  background-color: rgb(148, 134, 146);
+  background-color: rgb(163, 163, 163);
   color: #fff;
   text-align: center;
   border-radius: var(--border-radius);
-  padding: 5px 0;
+  padding: 5px 10px;
   z-index: 1;
   top: 30px;
   right: -90%;
+}
+
+.user-email-tooltip{
+  right: 0 !important;
 }
 
 .nav-tooltip:hover .tooltip-text{
@@ -182,6 +187,50 @@ li{
 
 .side-menu section:hover{
   background-color: #ffffff;
+}
+
+.side-bar{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.side-bar-options{
+  padding: 30px;
+  display:flex;
+}
+
+.side-bar-options i{
+  font-size: 25px;
+  margin: 0 13px;
+  color: var(--color);
+}
+
+.side-bar-options .tooltip-text{
+  top: -25px;
+}
+
+.username{
+  padding-top: 2px;
+  font-weight: 700;
+} 
+
+/* dark mode styles  */
+
+.side-bar-bg-dark{
+  background-color: rgb(197, 197, 197);
+}
+.side-bar-bg-dark ul section:hover{
+  background-color: rgb(219, 219, 219);
+}
+.content-bg-dark{
+  background-color: rgb(219, 219, 219);
+}
+.content-bg-light{
+  background-color: #ffffff;
+}
+.h-712{
+  height: 712px;
 }
 
 /* make tha app responsive */

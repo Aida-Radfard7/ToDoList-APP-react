@@ -1,0 +1,22 @@
+.welcome{
+    position: relative;
+}
+
+.welcome-img{
+    width: 100%;
+    height: 664px;
+    background-image: url('./images/login-bg.jpg');
+    opacity: 0.2;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.welcoming-text{
+    color: var(--color);
+    opacity: 0.5;
+    position: absolute;
+    top: 250px;
+    left: 120px;
+    z-index: 10;
+}

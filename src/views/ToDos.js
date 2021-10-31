@@ -6,17 +6,18 @@ import {todoRemove ,todoEdit, updateList} from '../state-management/actions/todo
 import { DragDropContext , Droppable , Draggable } from 'react-beautiful-dnd';
 
 
-export const ToDos = () => {
+export const ToDos = ({isHide , isDark}) => {
 
     const todos = useSelector(store => store.todoState);
     const dispatch = useDispatch();
+
 
     const deleteToDo = (index) =>{
         Swal.fire({
           text: 'Are you sure to remove this to do?',
           showCancelButton: true,
           confirmButtonText: 'Delete',
-          confirmButtonColor: 'rgb(162, 93, 226)',
+          confirmButtonColor: 'var(--background-color)',
           cancelButtonText: 'Cancel'
         }).then((result) => {
           if (result.value) {
@@ -29,7 +30,7 @@ export const ToDos = () => {
         Swal.fire({
           text: 'Edit this Todo ',
           input: 'text',
-          confirmButtonColor: 'rgb(162, 93, 226)',
+          confirmButtonColor: 'var(--background-color)',
           inputValue:lastTodo ,
           showCancelButton: true,
           inputValidator: (value) => {
@@ -37,6 +38,7 @@ export const ToDos = () => {
           }
         })
       }
+
 
     return (
         <>
@@ -49,32 +51,33 @@ export const ToDos = () => {
               dispatch(updateList(todos))
             }
           }}>
-            <section className="todos-list mx-4">
+            <section className={isHide ? "todos-list hide-sideBar mx-4" :"todos-list show-sideBar mx-4"}>
               <Droppable droppableId="droppable-1">
                 {(provided ,snapshot) => (
-                  <ul ref={provided.innerRef} {...provided.droppableProps}>
+                  <ul className="todo-holder" ref={provided.innerRef} {...provided.droppableProps}>
                       {todos.map((item , index) =>
                         <Draggable key={index} draggableId={`draggable-${index}`} index={index}>
                            {(provided, snapshot) => (
-                            <li key={index} 
-                             className="list-group-item d-flex" 
+                            <li key={index}
+                             className="list-group-item d-flex"
                              ref={provided.innerRef} 
                              {...provided.draggableProps} 
                              {...provided.dragHandleProps}
                              style={{...provided.draggableProps.style ,
-                             backgroundColor : snapshot.isDragging? "rgba(154, 145, 161 , 0.4)" : "white"}} >
+                             backgroundColor : snapshot.isDragging? "rgba(154, 145, 161 , 0.4)" : `${isDark[1] ? 'rgb(219, 219, 219)' : "white"}`}} >
 
                                 <span className="task-Counter">{index+1}</span>
                                 {item}
                                 <button onClick={() => deleteToDo(index)} className="remove-btn" ><i className="fas fa-trash"></i></button>
                                 <button onClick={() => editToDo(item , index)} className="edit-btn"><i className="fas fa-edit"></i></button>
-                            </li>                             
+                            </li>
                            )}
-                        </Draggable>  
+                        </Draggable>
                       )}
+
                   </ul>
                 )}
-              </Droppable>  
+              </Droppable>
             </section>
           </DragDropContext>  
         </>

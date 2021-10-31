@@ -1,0 +1,94 @@
+.lists{
+    display: flex;
+}
+
+.list{
+    height: 620px;
+    width: 270px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 30px 0 10px 3%;
+    background-color: rgb(240, 240, 240);  
+    border-radius: var(--border-radius);
+    box-shadow:.5px .5px 10px rgb(219, 219, 219);
+}
+
+/* dark mode  */
+.dark-list{
+    background-color: rgb(230, 230, 230);  
+}
+
+.list-title{
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    border-bottom: 1px solid rgb(211, 209, 209);
+}
+
+.list-title-text{
+    text-align: center;
+    max-width: 150px;
+    overflow: hidden;
+}
+
+.list-title button{
+    all: unset;
+    color:var(--color);
+    cursor: pointer;
+}
+
+.list-content{
+    position: relative;
+    width: 100%;
+}
+
+.list-fotter{
+    display:flex;
+    text-align:center;
+    justify-content: center;
+    margin:6px 0;
+    padding: 15px 0 0 0;
+    border-top:1px solid rgb(211, 209, 209);
+}
+
+.list-fotter-btn{
+    width: 90%;
+    border: 1px solid var(--color);
+    border-radius: var(--border-radius);
+    color: var(--color);
+    padding: 5px;
+}
+
+.list-fotter-btn:hover{
+    background-color: var(--background-color);
+    color:white;
+}
+
+.add-card-section{
+    width: 90%;
+}
+
+.card-textbox{
+    border: 1px solid var(--color);
+    border-radius: var(--border-radius);
+    outline: none;
+    padding: 2px;
+    max-width: 250px;
+    height: 33px;
+    overflow-y: auto;
+}
+
+.add-card-section button{
+    border: 1px solid var(--color);
+    border-radius: var(--border-radius);
+    outline: none;
+    padding: 3px;
+    width: 35%;
+    margin: 4px;
+}
+
+.add-card-section button:hover{
+    background-color: var(--background-color);
+    color: white;
+}

@@ -2,6 +2,9 @@
     filter: invert(1);
 }
 
+.navbar-board-title{
+    margin: 0 auto !important;
+}
 .inbox-title{
     margin-left: 20%;
     margin-top: 3rem;

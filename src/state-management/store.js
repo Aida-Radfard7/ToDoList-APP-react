@@ -8,7 +8,7 @@ import combineReducers from './reducer/rootReducer';
 const persistConfig = {
     key: 'root',
     storage,
-    whitelist:['todoState' , 'themeState']
+    whitelist:['todoState' , 'themeState' , 'boardListState' , 'cardState' , 'loginState']
   }
 
 const persistedReducer = persistReducer(persistConfig , combineReducers)

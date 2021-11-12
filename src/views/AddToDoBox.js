@@ -24,7 +24,7 @@ export const AddToDoBox = ({isHide , isDark}) => {
   }
 
   return (
-    <section className={isHide ? "main mt-5 hide-sideBar" : "main mt-5"}>
+    <section className={isHide ? "main inbox-sidebar-hide mt-5" : "main mt-5"}>
       <section id="slideDown-addTask" >
         <section className="addTask-section">
           <div
@@ -45,7 +45,7 @@ export const AddToDoBox = ({isHide , isDark}) => {
         </section>
         </section>
       </section>
-      <ToDos isHide={isHide} isDark={isDark} />
+      <ToDos isDark={isDark} />
     </section>
   );
 };

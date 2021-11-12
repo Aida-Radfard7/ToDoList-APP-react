@@ -2,6 +2,10 @@
     filter: invert(1);
 }
 
+.inbox-sidebar-hide{
+    margin-right: 15% !important;
+}
+
 .navbar-board-title{
     margin: 0 auto !important;
 }

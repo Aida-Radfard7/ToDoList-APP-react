@@ -7,7 +7,6 @@ import {
   changeTheme,
 } from "../state-management/actions/themeAction";
 import { Music } from "../component/Music";
-import { CurrentTime } from "../component/CurrentTime";
 
 export const SideBar = () => {
   const dark = useSelector((store) => store.themeState);

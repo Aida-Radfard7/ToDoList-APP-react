@@ -6,7 +6,7 @@ import {todoRemove ,todoEdit, updateList} from '../state-management/actions/todo
 import { DragDropContext , Droppable , Draggable } from 'react-beautiful-dnd';
 
 
-export const ToDos = ({isHide , isDark}) => {
+export const ToDos = ({isDark}) => {
 
     const todos = useSelector(store => store.todoState);
     const dispatch = useDispatch();
@@ -41,7 +41,6 @@ export const ToDos = ({isHide , isDark}) => {
 
 
     return (
-        <>
           <DragDropContext 
             onDragEnd={(params) => {
               if(params.destination){
@@ -51,7 +50,7 @@ export const ToDos = ({isHide , isDark}) => {
                 dispatch(updateList(todos))
             }
           }}>
-            <section className={isHide ? "todos-list hide-sideBar mx-4" :"todos-list show-sideBar mx-4"}>
+            <section className="todos-list">
               <Droppable droppableId="droppable-1">
                 {(provided ,snapshot) => (
                   <ul className="todo-holder" ref={provided.innerRef} {...provided.droppableProps}>
@@ -80,6 +79,5 @@ export const ToDos = ({isHide , isDark}) => {
               </Droppable>
             </section>
           </DragDropContext>  
-        </>
     )
 }

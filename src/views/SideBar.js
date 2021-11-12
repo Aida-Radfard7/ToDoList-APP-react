@@ -37,14 +37,7 @@ export const SideBar = () => {
               </Link>
             </li>
           </section>
-          <section className="d-flex align-content-center my-1 p-2">
-            <i className="	far fa-calendar pt-1"></i>
-            <li className="mx-3">
-              <Link to="/today" className="text-dark">
-                Today
-              </Link>
-            </li>
-          </section>
+
           <section className="d-flex align-content-center my-1 p-2">
             <i className="	fab fa-trello pt-1"></i>
             <li className="mx-3">

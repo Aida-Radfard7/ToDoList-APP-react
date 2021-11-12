@@ -6,7 +6,6 @@ import { Switch, Route, Link } from "react-router-dom";
 import { SideBar } from "../views/SideBar";
 import { AddToDoBox } from "../views/AddToDoBox";
 import { PageTitle } from "../views/PageTitle";
-import { Today } from "../views/Today";
 import { Theme } from "../views/Theme";
 import { Board } from "../views/Board/Board";
 import { useSelector } from "react-redux";
@@ -73,7 +72,8 @@ export const Layout = () => {
                     </form>)
                   : null
               }
-<CurrentTime />
+
+            <CurrentTime />
             </section>
 
             {board
@@ -113,7 +113,6 @@ export const Layout = () => {
 
           <main>
             <Route path="/inbox" component={() => <Inbox isHide={isHide} />} /> 
-            <Route path="/today" component={() => <Today isHide={isHide} />} />
             <Route path="/board" component={() => <Board isHide={isHide} />} />
             <Route path="/addToDo" component={() => <AddToDoBox isHide={isHide} isDark={dark} />} />
           </main>

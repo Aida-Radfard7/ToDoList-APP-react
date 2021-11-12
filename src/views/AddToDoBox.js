@@ -36,7 +36,7 @@ export const AddToDoBox = ({isHide , isDark}) => {
             data-placeholder="Write what you want to do..."
           ></div>
         <section className="addTask-section-btn mt-2 mb-3">
-          <button onClick={() => insert(todoInput.current.innerHTML)} id="addBtn" className=" px-3">
+          <button onClick={() => insert(todoInput.current.innerText)} id="addBtn" className=" px-3">
             Add
           </button>
           <button onClick={() => history.goBack()} id="cancelBtn" className=" px-2">

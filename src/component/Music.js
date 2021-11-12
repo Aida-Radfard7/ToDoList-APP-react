@@ -40,7 +40,7 @@ export const Music = () => {
     }
 
     return (
-        <>
+        <section className="music-options">
             {playingMusic 
                 ? (<a onClick={() => prevMusic()}>
                     <i className= "	fas fa-angle-double-left nav-tooltip">
@@ -69,6 +69,6 @@ export const Music = () => {
                   </a>)
                 :null
             }
-        </>
+        </section>
     )
 }

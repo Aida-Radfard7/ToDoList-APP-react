@@ -194,12 +194,17 @@ li{
 .side-bar-options{
   padding: 30px;
   display:flex;
+  flex-direction:column;
 }
 
 .side-bar-options i{
   font-size: 25px;
-  margin: 0 11px;
+  margin: 10px 11px;
   color: var(--color);
+}
+
+.music-options{
+  display: flex;
 }
 
 .side-bar-options .tooltip-text{
@@ -233,45 +238,83 @@ li{
 
 @media screen and (max-width: 480px) {
   .main{
-      width: 74%;
+    width: 74%;
   }    
   .side-bar{
-      width: 26%;
+    width: 26%;
   }
   .side-menu ul{
-      padding-left:15px!important;
+    padding-left:15px!important;
   }
   .theme{
-      height: 15px;
-      width: 15px;
-      margin: 3px;
+    height: 15px;
+    width: 15px;
+    margin: 3px;
   }
   .header-form input{
-      width: 200px;
+    width: 200px;
+  }
+
+  .side-bar-options i{
+    font-size: 22px;
+    margin: 5px 5px;
+  }
+  
+  .music-options{
+    flex-direction: column;
   }
 
 }
 
 @media screen and (max-width: 660px) {
   .side-menu ul{
-      padding-left:15px!important;
+    padding-left:15px!important;
   }
   .main{
-      width: 78%;
+    width: 78%;
   }    
   .side-bar{
-      width: 22%;
+    width: 22%;
   }
+
   .theme{
-      height: 15px;
-      width: 15px;
-      margin: 3px;
+    height: 15px;
+    width: 15px;
+    margin: 3px;
+  }
+  
+  .side-bar-options i{
+    font-size: 22px;
+    margin: 5px 5px;
+  }
+  
+  .music-options{
+    flex-direction: column;
   }
   
 }
 
 @media screen and (min-width: 750px) and (max-width: 950px) {
   .side-menu ul{
-      padding-left:15px!important;
+    padding-left:15px!important;
+  }
+  
+  .side-bar-options i{
+    font-size: 23px;
+    margin: 7px 7px;
+  }
+  
+  .music-options{
+    flex-direction: column;
   }
 } 
+
+@media screen and (min-width:1400px){
+  .side-bar-options{
+    flex-direction:row;
+  }
+
+  .music-options{
+    flex-direction: row;
+  }
+}

@@ -57,8 +57,6 @@ export const SideBar = () => {
       </section>
 
       <section className="side-bar-options">
-    
-        <Music />
 
         <Link onClick={() => setDarkTheme()}>
           <DarkMode />
@@ -72,6 +70,9 @@ export const SideBar = () => {
             <span className="tooltip-text">GitHub</span>
           </i>
         </a>
+
+        <Music />
+
       </section>
     </section>
   );

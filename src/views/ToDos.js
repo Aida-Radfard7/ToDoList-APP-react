@@ -66,7 +66,7 @@ export const ToDos = ({isDark}) => {
                              backgroundColor : snapshot.isDragging? "rgba(154, 145, 161 , 0.4)" : `${isDark[1] ? 'rgb(219, 219, 219)' : "white"}`}} >
 
                                 <span className="task-Counter">{index+1}</span>
-                                {item}
+                                <span className="task-text">{item}</span>
                                 <button onClick={() => deleteToDo(index)} className="remove-btn" ><i className="fas fa-trash"></i></button>
                                 <button onClick={() => editToDo(item , index)} className="edit-btn"><i className="fas fa-edit"></i></button>
                             </li>

@@ -13,12 +13,14 @@ export const DARK_MODE = "DARK_MODE";
 export const LIST_ADD = "LIST_ADD";
 export const LIST_DELETE = "LIST_DELETE";
 export const LIST_Edit = "LIST_Edit";
+export const DND_UPDATE_LIST = "DND_UPDATE_LIST";
 
 export const CARD_ADD = "CARD_ADD";
 export const CARD_DELETE = "CARD_DELETE";
 export const CARD_EDIT = "CARD_EDIT";
 export const CARD_LIST_DELETE = "CARD_LIST_DELETE";
 export const CARD_PRIORITY = "CARD_UPDATE";
+export const DND_CARD_UPDATE = "DND_CARD_UPDATE";
 
 //login
 export const LOGIN = "LOGIN";

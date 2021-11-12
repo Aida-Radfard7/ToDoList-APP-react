@@ -1,4 +1,4 @@
-import { LIST_ADD , LIST_DELETE , LIST_Edit } from "../actions/actionTypes";
+import { LIST_ADD , LIST_DELETE , LIST_Edit , DND_UPDATE_LIST} from "../actions/actionTypes";
 
 const boardListReducer = function(state=[] , action){
     switch(action.type){
@@ -11,8 +11,11 @@ const boardListReducer = function(state=[] , action){
         
         case LIST_Edit: 
             state.splice(action.payload.index , 1 , action.payload.value);
-            return [...state]; 
-              
+            return [...state];
+
+        case DND_UPDATE_LIST:
+            return [...action.payload];
+            
         default:
             return state    
     }

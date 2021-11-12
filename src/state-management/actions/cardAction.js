@@ -1,4 +1,4 @@
-import {CARD_ADD , CARD_DELETE , CARD_LIST_DELETE , CARD_PRIORITY , CARD_EDIT} from './actionTypes';
+import {CARD_ADD , CARD_DELETE , CARD_LIST_DELETE , CARD_PRIORITY , CARD_EDIT , DND_CARD_UPDATE} from './actionTypes';
 
 export const cardAdd = (text , index , id , priority) =>({
     type:CARD_ADD,
@@ -23,4 +23,9 @@ export const listCardsDelete = (index) =>({
 export const cardSetPriority = (priority , id) =>({
     type:CARD_PRIORITY,
     payload:{priority:priority , id:id }
+})
+
+export const updateCardDND = (newList) =>({
+    type:DND_CARD_UPDATE,
+    payload:newList
 })

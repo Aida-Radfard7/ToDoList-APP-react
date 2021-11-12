@@ -43,12 +43,12 @@ export const ToDos = ({isHide , isDark}) => {
     return (
         <>
           <DragDropContext 
-          onDragEnd={(params) => {
-            if(params.destination){
-              const sourceIndex = params.source.index;
-              const destinationIndex = params.destination.index;
-              todos.splice(destinationIndex,0,todos.splice(sourceIndex,1)[0]);
-              dispatch(updateList(todos))
+            onDragEnd={(params) => {
+              if(params.destination){
+                const sourceIndex = params.source.index;
+                const destinationIndex = params.destination.index;
+                todos.splice(destinationIndex,0,todos.splice(sourceIndex,1)[0]);
+                dispatch(updateList(todos))
             }
           }}>
             <section className={isHide ? "todos-list hide-sideBar mx-4" :"todos-list show-sideBar mx-4"}>

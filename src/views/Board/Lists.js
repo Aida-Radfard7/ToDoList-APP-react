@@ -2,10 +2,11 @@ import {React , useState , useRef} from 'react'
 import '../../assets/lists.css';
 import { useSelector ,useDispatch } from "react-redux";
 import Swal from 'sweetalert2';
-import { boardListDelete, boardListEdit } from '../../state-management/actions/boardListAction';
-import {cardAdd , listCardsDelete} from '../../state-management/actions/cardAction';
+import { boardListDelete, boardListEdit, updateListDND } from '../../state-management/actions/boardListAction';
+import {cardAdd , listCardsDelete , updateCardDND} from '../../state-management/actions/cardAction';
 import {Cards} from './Cards';
 import { v4 as uuidv4 } from 'uuid';
+import { DragDropContext , Droppable , Draggable } from 'react-beautiful-dnd';
 
 
 
@@ -58,32 +59,34 @@ export const Lists = ({isDark}) => {
         setIndex(index);
     }
 
+
     return (
         <section className="lists">
             {boardList.map((item , index) =>
-            <section key={index} className={isDark ? "list dark-list" : "list"}>
-                <section className="list-title py-2">
-                    <button onClick={() => deleteList(index)}><i className="fas fa-trash"></i></button>
-                    <p className="list-title-text mb-0">{item}</p>
-                    <button onClick={() => editListName(item , index)}><i className="fas fa-edit"></i></button>
-                </section>
+                <section className={isDark ? "list dark-list" : "list"}>
 
-                <section className="list-content">
-                   <Cards index={index} isDark={isDark}/> 
-                </section>
+                    <section className="list-title py-2">
+                        <button onClick={() => deleteList(index)}><i className="fas fa-trash"></i></button>
+                            <p className="list-title-text mb-0">{item}</p>
+                            <button onClick={() => editListName(item , index)}><i className="fas fa-edit"></i></button>
+                    </section>
 
-                <section className="list-fotter">
-                    {click && indexState == index
-                        ? (<section className="add-card-section">
-                            <div contentEditable role="textbox" className="card-textbox" ref={cardText}></div>
-                            <button onClick={() => addCard(cardText.current.textContent , index , uuidv4() , 0)} id="addCardBtn">Add</button>
-                            <button onClick={() => setClick(false)} id="cancelCardBtn">Cancel</button>
-                           </section>)
-                        : (<button onClick={() => clickForNewCard(index)} className="list-fotter-btn">Add New Card</button>)
-                    }
+                    <section className="list-content">
+                      <Cards index={index} isDark={isDark}/> 
+                    </section>
+                    
+                    <section className="list-fotter">
+                        {click && indexState == index
+                            ? (<section className="add-card-section">
+                                    <div contentEditable role="textbox" className="card-textbox" ref={cardText}></div>
+                                    <button onClick={() => addCard(cardText.current.textContent , index , uuidv4() , 0)} id="addCardBtn">Add</button>
+                                    <button onClick={() => setClick(false)} id="cancelCardBtn">Cancel</button>
+                                </section>)
+                            : (<button onClick={() => clickForNewCard(index)} className="list-fotter-btn">Add New Card</button>)
+                        }
+                    </section>
                 </section>
-            </section>            
-            )}
+                    )}
         </section>
     )
 }

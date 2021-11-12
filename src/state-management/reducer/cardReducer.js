@@ -1,4 +1,4 @@
-import {CARD_ADD , CARD_DELETE , CARD_LIST_DELETE , CARD_PRIORITY , CARD_EDIT} from '../actions/actionTypes';
+import {CARD_ADD , CARD_DELETE , CARD_LIST_DELETE , CARD_PRIORITY , CARD_EDIT , DND_CARD_UPDATE} from '../actions/actionTypes';
 
 const cardReducer = function(state=[] , action){
     switch(action.type){
@@ -22,6 +22,9 @@ const cardReducer = function(state=[] , action){
             state.filter(item => item.id == action.payload.id)[0].priority = action.payload.priority;
             return [...state];
 
+        case DND_CARD_UPDATE:
+            return [...action.payload];
+            
         default:
             return state;
     }

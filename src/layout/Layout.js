@@ -11,6 +11,7 @@ import { Theme } from "../views/Theme";
 import { Board } from "../views/Board/Board";
 import { useSelector } from "react-redux";
 import { Welcome } from "../views/Welcome";
+import { CurrentTime } from "../component/CurrentTime";
 
 
 export const Layout = () => {
@@ -72,6 +73,7 @@ export const Layout = () => {
                     </form>)
                   : null
               }
+<CurrentTime />
             </section>
 
             {board
@@ -119,7 +121,7 @@ export const Layout = () => {
           <aside id="aside">
             <SideBar />
           </aside>
-
+          
           <Theme />
 
           <section className="clearfix"></section>
@@ -128,7 +130,7 @@ export const Layout = () => {
 
 
       <Switch>
-        <Route path='/' exact component={() => <Welcome />} />
+        <Route path='/' exact component={() => <Welcome isHide={isHide} isDark={dark} />} />
       </Switch>
 
     </>

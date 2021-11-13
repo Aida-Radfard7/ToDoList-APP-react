@@ -143,6 +143,7 @@ li{
   height: 720px;
   float: left;
   position: fixed;
+  clear: both;
 }
 
 .nav-tooltip{
@@ -241,7 +242,7 @@ li{
     width: 74%;
   }    
   .side-bar{
-    width: 26%;
+    width: 70px !important;
   }
   .side-menu ul{
     padding-left:15px!important;
@@ -254,16 +255,43 @@ li{
   .header-form input{
     width: 200px;
   }
-
   .side-bar-options i{
     font-size: 22px;
     margin: 5px 5px;
   }
-  
+  .side-bar-options{
+    padding-left: 20px;
+  }
   .music-options{
     flex-direction: column;
   }
 
+  /* side bar for mobile show  */
+  .side-menu ul li span{
+    display: none !important;
+  }
+  .side-menu ul li i{
+    font-size: 24px;
+  }
+  .side-bar-options{
+    margin-bottom:50px;
+  }
+
+  /* header mobile show  */
+  .header-form{
+    display: none;
+  }
+
+  /* todo card mobile show  */
+  .list-group-item .task-text{
+    padding-top: 45px;
+    font-size: 20px;
+  }
+
+  /* board (list/card) mobile show  */
+  .board-sidebar-hide{
+    margin-right: 70px !important;
+  }
 }
 
 @media screen and (max-width: 660px) {

@@ -28,21 +28,21 @@ export const SideBar = () => {
       }
     >
       <section className="side-menu my-5">
-        <ul className="px-5 pt-4">
+        <ul className="pl-5 pt-4">
           <section className="d-flex align-content-center my-1 p-2">
-            <i className="	fa fa-inbox pt-1"></i>
-            <li className="mx-3">
+            <li>
               <Link to="/inbox" className="text-dark">
-                Inbox
+                <i className="fa fa-inbox pt-1"></i>
+                <span className="mx-3">Inbox</span>
               </Link>
             </li>
           </section>
 
           <section className="d-flex align-content-center my-1 p-2">
-            <i className="	fab fa-trello pt-1"></i>
-            <li className="mx-3">
+            <li>
               <Link to="/board" className="text-dark">
-                Board
+                <i className="	fab fa-trello pt-1"></i>
+                <span className="mx-3">Board</span> 
               </Link>
             </li>
           </section>

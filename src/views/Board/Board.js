@@ -24,7 +24,7 @@ export const Board = ({isHide}) => {
   }
 
   return (
-      <section className={isHide ? "main mt-5 mr-250" :"main mt-5"}>
+      <section className={isHide ? "main mt-5 board-sidebar-hide" :"main mt-5"}>
         <section className="board-content">
           <Lists isDark={dark[1]} />
           {click ? (

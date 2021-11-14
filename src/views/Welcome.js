@@ -10,7 +10,8 @@ export const Welcome = ({isHide,isDark}) => {
     }, [])
 
   const login = useSelector((store) => store.loginState);
-  let welcomeText = `Welcome ${login.username}`;
+  console.log(login)
+  let welcomeText = `Welcome ${login[0].username}`;
   var text = welcomeText.split("")
  
     function typeText() {
@@ -27,8 +28,8 @@ export const Welcome = ({isHide,isDark}) => {
     }
 
     return (
-        <section className={isHide ? "main mt-5 hide-sideBar" :"main mt-5"}>
-            <section className={isDark[1] ? "dark-welcome" :"welcome"}>
+        <section className={isHide ? "main hide-sideBar" :"main"}>
+            <section className={isDark[1] ? "welcome dark-welcome" :"welcome"}>
                 <section className="welcome-img"></section>
                 <h2 className="welcoming-text" id="welcome-text"></h2>
             </section>

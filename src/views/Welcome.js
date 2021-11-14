@@ -10,7 +10,7 @@ export const Welcome = ({isHide,isDark}) => {
     }, [])
 
   const login = useSelector((store) => store.loginState);
-  let welcomeText = `Welcome ${login[0].username}`;
+  let welcomeText = `Welcome ${login.username}`;
   var text = welcomeText.split("")
  
     function typeText() {

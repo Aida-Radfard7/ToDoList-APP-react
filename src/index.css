@@ -154,6 +154,7 @@ li{
   float: left;
   position: fixed;
   clear: both;
+  background-color: rgb(207, 207, 207);
 }
 
 .nav-tooltip{
@@ -230,7 +231,7 @@ li{
 /* dark mode styles  */
 
 .side-bar-bg-dark{
-  background-color: rgb(197, 197, 197);
+  background-color: rgb(161, 161, 161);
 }
 .side-bar-bg-dark ul section:hover{
   background-color: rgb(219, 219, 219);

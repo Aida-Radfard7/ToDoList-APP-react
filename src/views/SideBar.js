@@ -24,7 +24,7 @@ export const SideBar = () => {
   return (
     <section
       className={
-        dark[1] == true ? "side-bar side-bar-bg-dark" : "side-bar bg-light"
+        dark[1] == true ? "side-bar side-bar-bg-dark" : "side-bar"
       }
     >
       <section className="side-menu my-5">

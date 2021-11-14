@@ -26,8 +26,8 @@ export const Login = () => {
         <section className="login">
             <form className="form" onSubmit={submit}  >
                     <h2>Login</h2>
-                    <input type="text" placeholder="Enter Your Name ..." ref={username} defaultValue={login[0].username} />
-                    <input type="email" placeholder="Enter Your Email ..." ref={email} defaultValue={login[0].email} />  
+                    <input type="text" placeholder="Enter Your Name ..." ref={username} defaultValue={login.username} />
+                    <input type="email" placeholder="Enter Your Email ..." ref={email} defaultValue={login.email} />  
                     <input type="submit" /> 
             </form>
             <section className="back">

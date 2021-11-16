@@ -11,6 +11,8 @@ import { Board } from "../views/Board/Board";
 import { useSelector } from "react-redux";
 import { Welcome } from "../views/Welcome";
 import { CurrentTime } from "../component/CurrentTime";
+import { SearchToDo } from "../component/SearchToDo";
+import { SearchResult } from "../component/SearchResult";
 
 
 export const Layout = () => {
@@ -18,6 +20,7 @@ export const Layout = () => {
   const [isHide , setIsHide] = useState(false);
   const login = useSelector((store) => store.loginState);
   const dark = useSelector(store => store.themeState);
+
 
   var board = window.location.href == "http://localhost:3000/board";
 
@@ -59,21 +62,13 @@ export const Layout = () => {
                   <span className="tooltip-text">Go To Home</span>
                 </li>
               </ul>
+
               {!board
-                ? ( <form className="header-form" action="">
-                      <section className="d-flex">
-                        <input
-                          type="text"
-                          className="form-control"
-                          placeholder="find..."
-                        />
-                        <i type="submit" className="fa fa-search"></i>
-                      </section>              
-                    </form>)
-                  : null
+                ? <SearchToDo />
+                : null
               }
 
-            <CurrentTime />
+              <CurrentTime />
             </section>
 
             {board

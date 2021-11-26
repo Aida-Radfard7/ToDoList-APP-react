@@ -3,6 +3,7 @@ import '../assets/inbox.css';
 import { Link } from "react-router-dom";
 import { ToDos } from './ToDos';
 import { useSelector } from "react-redux";
+import { SearchResult } from '../component/SearchResult';
 
 
 export const Inbox = ({isHide}) => {
@@ -21,7 +22,7 @@ export const Inbox = ({isHide}) => {
                     </Link>
                 </section> 
 
-            <ToDos isDark={dark} /> 
+                <ToDos isDark={dark} />
         </section>
     )
 }

@@ -58,6 +58,7 @@ export const ToDos = ({isDark}) => {
                         <Draggable key={index} draggableId={`draggable-${index}`} index={index}>
                            {(provided, snapshot) => (
                             <li key={index}
+                            id={item}
                              className="list-group-item d-flex"
                              ref={provided.innerRef} 
                              {...provided.draggableProps} 

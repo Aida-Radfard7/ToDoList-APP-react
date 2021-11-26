@@ -5,20 +5,26 @@ import { Link , Route } from 'react-router-dom';
 import { SearchResult } from './SearchResult';
 
 
-export const SearchToDo = ({passList}) => {
+export const SearchToDo = ({}) => {
 
     const searchInput = useRef();
     const todos = useSelector(store => store.todoState);
-    const [isSubmit , setIsSubmit] = useState(false);
     const [resultList , setResultList] = useState();
+    const [isSubmit , setIsSubmit] = useState(false)
+    console.log(todos)
 
 
     const onSubmit = (searchTxt) =>{
         if(searchTxt != ""){
-            setIsSubmit(true);
-            const includes = todos.filter(item => item.includes(`${searchTxt}`));
-            setResultList(includes) ;
+            setIsSubmit(true)
+            let includes = todos.filter(item => String(item).includes(searchTxt))
+            setResultList(includes);
         }
+    }
+
+    const CloseSearch = () =>{
+        setIsSubmit(false)
+        searchInput.current.value = "";
     }
 
     return (
@@ -31,7 +37,7 @@ export const SearchToDo = ({passList}) => {
                         className="form-control"
                         placeholder="find..."
                     />
-                    <Link to="search-result">
+                    <Link>
                         <a onClick={() => onSubmit(searchInput.current.value)}>
                             <i type="submit" className="fa fa-search"></i>
                         </a>
@@ -39,8 +45,26 @@ export const SearchToDo = ({passList}) => {
                 </section>               
             </form>
 
-
-            <Route path="/search-result" component={() => <SearchResult resultList={resultList} />} />
+            {isSubmit
+                ?<section className="position-absolute">
+                    <section className="search-result">
+                       <ul>
+                            {resultList.map((item , index) => 
+                                <a href={`#${item}`} onClick={() => CloseSearch()}>
+                                    <li key={index}>
+                                      {item}
+                                    </li>
+                                </a>
+                            )}
+                        </ul>
+                        {resultList.length === 0 ? <p className="not-found-txt">--- no search result ---</p> : null}
+                        <button onClick={() => CloseSearch()} className="close-btn">
+                            Exit
+                        </button>
+                    </section>
+                </section>
+                :null
+            }
         </>
     )
 }

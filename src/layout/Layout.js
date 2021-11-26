@@ -21,7 +21,6 @@ export const Layout = () => {
   const login = useSelector((store) => store.loginState);
   const dark = useSelector(store => store.themeState);
 
-
   var board = window.location.href == "http://localhost:3000/board";
 
   function hideAndShowMenu() {

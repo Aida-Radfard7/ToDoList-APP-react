@@ -12,7 +12,6 @@ import { useSelector } from "react-redux";
 import { Welcome } from "../views/Welcome";
 import { CurrentTime } from "../component/CurrentTime";
 import { SearchToDo } from "../component/SearchToDo";
-import { SearchResult } from "../component/SearchResult";
 
 
 export const Layout = () => {

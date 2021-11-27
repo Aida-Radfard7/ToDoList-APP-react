@@ -2,7 +2,6 @@ import {React ,useRef , useState} from 'react';
 import '../assets/searchToDo.css';
 import {useSelector, useDispatch} from 'react-redux'
 import { Link , Route } from 'react-router-dom';
-import { SearchResult } from './SearchResult';
 
 
 export const SearchToDo = ({}) => {
@@ -22,6 +21,13 @@ export const SearchToDo = ({}) => {
         }
     }
 
+    const handleKeyDown = (e) =>{
+        if(e.key === 'Enter'){
+            e.preventDefault();
+            onSubmit(searchInput.current.value)
+        }
+    }
+
     const CloseSearch = () =>{
         setIsSubmit(false)
         searchInput.current.value = "";
@@ -36,6 +42,7 @@ export const SearchToDo = ({}) => {
                         type="text"
                         className="form-control"
                         placeholder="find..."
+                        onKeyDown ={(e) => handleKeyDown(e)}
                     />
                     <Link>
                         <a onClick={() => onSubmit(searchInput.current.value)}>

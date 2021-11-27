@@ -2,7 +2,6 @@ import './App.css';
 import { Layout } from './layout/Layout';
 import './assets/font/css/all.css';
 import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
-import {AddToDoBox} from './views/AddToDoBox';
 import { Login } from './layout/Login';
 import { useSelector } from 'react-redux';
 

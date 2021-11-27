@@ -105,6 +105,7 @@ export const Layout = () => {
           </section>
 
           <main>
+            <Route path='/' exact component={() => <Welcome isHide={isHide} isDark={dark} />} />
             <Route path="/inbox" component={() => <Inbox isHide={isHide} />} /> 
             <Route path="/board" component={() => <Board isHide={isHide} />} />
             <Route path="/addToDo" component={() => <AddToDoBox isHide={isHide} isDark={dark} />} />
@@ -119,11 +120,6 @@ export const Layout = () => {
           <section className="clearfix"></section>
         </section>
       </section>
-
-
-      <Switch>
-        <Route path='/' exact component={() => <Welcome isHide={isHide} isDark={dark} />} />
-      </Switch>
 
     </>
   );

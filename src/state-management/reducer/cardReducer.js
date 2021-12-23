@@ -16,8 +16,9 @@ const cardReducer = function(state=[] , action){
         case CARD_LIST_DELETE:
             let toRemove = state.filter(item => item.index == action.payload );
             state = state.filter((item) => !toRemove.includes(item));
-            let x = state.filter(item => item.index > action.payload).index - 1;
-            return [...state]  ;
+            let X = state.filter(item => item.index > action.payload);
+            X.map(item => item.index -= 1)
+            return [...state];
 
         case CARD_PRIORITY:
             state.filter(item => item.id == action.payload.id)[0].priority = action.payload.priority;

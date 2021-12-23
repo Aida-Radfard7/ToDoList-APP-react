@@ -70,8 +70,6 @@ export const Cards = ({index , isDark}) => {
         3:'#61B15A'
     }
 
-    console.log(cards)
-
     return (
             <section className="cards">
                 {cards.map((item) =>

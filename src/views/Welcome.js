@@ -24,7 +24,7 @@ export const Welcome = ({isHide,isDark}) => {
             i++;
             if (text.length == i)
                 clearInterval(interval);
-        }, 300)
+        }, 100)
     }
 
     return (

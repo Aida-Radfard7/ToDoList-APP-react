@@ -10,7 +10,8 @@ const boardListReducer = function(state=[] , action){
             return [...state];
         
         case LIST_Edit: 
-            state.splice(action.payload.index , 1 , action.payload.value);
+            // state.splice(action.payload.index , 1 , action.payload.value);
+            state.splice(action.payload.index , 1 ,{title:action.payload.value , id:action.payload.id});
             return [...state];
 
         case DND_UPDATE_LIST:

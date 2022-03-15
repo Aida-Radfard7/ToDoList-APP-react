@@ -1,4 +1,4 @@
-import {React , useState , useRef , useEffect} from 'react'
+import {React , useState , useRef} from 'react'
 import '../../assets/lists.css';
 import { useSelector ,useDispatch } from "react-redux";
 import Swal from 'sweetalert2';
@@ -6,8 +6,7 @@ import { boardListDelete, boardListEdit, updateListDND } from '../../state-manag
 import {cardAdd , listCardsDelete , updateCardDND} from '../../state-management/actions/cardAction';
 import {Cards} from './Cards';
 import { v4 as uuidv4 } from 'uuid';
-import $ from "jquery";
-import 'jquery-ui/ui/widgets/sortable';
+import { DragDropContext , Droppable , Draggable } from 'react-beautiful-dnd';
 
 
 
@@ -19,12 +18,6 @@ export const Lists = ({isDark}) => {
     const dispatch = useDispatch()
     const cardText = useRef();
     const cards = useSelector((store) => store.cardState);
-
-    useEffect(() => {
-        $("#sortable2").sortable({
-          connectWith: ".connectedSortable2",
-        });
-    }, [])
 
     const deleteList = (index) =>{
         Swal.fire({
@@ -41,7 +34,7 @@ export const Lists = ({isDark}) => {
           })
     }
 
-    const editListName = (lastName , index , id) =>{
+    const editListName = (lastName , index) =>{
         Swal.fire({
             text: 'Edit List Name ',
             input: 'text',
@@ -49,7 +42,7 @@ export const Lists = ({isDark}) => {
             inputValue:lastName ,
             showCancelButton: true,
             inputValidator: (value) => {
-              dispatch(boardListEdit(index , value , id));
+              dispatch(boardListEdit(index , value ));
             }
           })
     }
@@ -68,14 +61,14 @@ export const Lists = ({isDark}) => {
 
 
     return (
-        <section id={"sortable2"} className="lists connectedSortable2">
+        <section className="lists">
             {boardList.map((item , index) =>
                 <section className={isDark ? "list dark-list" : "list"}>
 
                     <section className="list-title py-2">
                         <button onClick={() => deleteList(index)}><i className="fas fa-trash"></i></button>
-                            <p className="list-title-text mb-0">{item.title}</p>
-                            <button onClick={() => editListName(item.title , index ,item.id)}><i className="fas fa-edit"></i></button>
+                            <p className="list-title-text mb-0">{item}</p>
+                            <button onClick={() => editListName(item , index)}><i className="fas fa-edit"></i></button>
                     </section>
 
                     <section className="list-content">
@@ -85,10 +78,8 @@ export const Lists = ({isDark}) => {
                     <section className="list-fotter">
                         {click && indexState == index
                             ? (<section className="add-card-section">
-                                    {/* <div contentEditable role="textbox" className="card-textbox" ref={cardText}></div> */}
-                                    <input type="text" className="card-textbox" ref={cardText}/>
-                                    {/* <button onClick={() => addCard(cardText.current.textContent , index , uuidv4() , 0)} id="addCardBtn">Add</button> */}
-                                    <button onClick={() => addCard(cardText.current.value , index , uuidv4() , 0)} id="addCardBtn">Add</button>
+                                    <div contentEditable role="textbox" className="card-textbox" ref={cardText}></div>
+                                    <button onClick={() => addCard(cardText.current.textContent , index , uuidv4() , 0)} id="addCardBtn">Add</button>
                                     <button onClick={() => setClick(false)} id="cancelCardBtn">Cancel</button>
                                 </section>)
                             : (<button onClick={() => clickForNewCard(index)} className="list-fotter-btn">Add New Card</button>)

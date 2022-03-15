@@ -1,10 +1,9 @@
-import React, { useState , useEffect } from 'react';
+import React, { useState } from 'react';
 import '../../assets/cards.css';
 import { useSelector , useDispatch } from 'react-redux';
 import Swal from 'sweetalert2'
 import { cardDelete , cardSetPriority , cardEdit, updateCardDND} from '../../state-management/actions/cardAction';
-import $ from "jquery";
-import 'jquery-ui/ui/widgets/sortable';
+import { DragDropContext , Droppable , Draggable } from 'react-beautiful-dnd';
 
 
 //to solve this ERROR: expected an assignment or function call and instead saw an expression 
@@ -13,12 +12,6 @@ import 'jquery-ui/ui/widgets/sortable';
 export const Cards = ({index , isDark}) => {
     const cards = useSelector((store) => store.cardState);
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        $(`#sortable${index}`).sortable({
-          connectWith: ".connectedSortable",
-        });
-    }, [])
 
     const deleteCard = (id) =>{
         Swal.fire({
@@ -78,7 +71,7 @@ export const Cards = ({index , isDark}) => {
     }
 
     return (
-            <section id={`sortable${index}`} className="cards connectedSortable">
+            <section className="cards">
                 {cards.map((item) =>
                         <div 
                          className={item.index == index ? `card ${isDark ? 'dark-list' : null}` : "d-none"} 

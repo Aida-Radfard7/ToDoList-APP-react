@@ -3,8 +3,7 @@ import "../../assets/board.css";
 import { useSelector, useDispatch } from "react-redux";
 import { boardListAdd } from "../../state-management/actions/boardListAction";
 import { Lists } from "./Lists";
-
-
+import { v4 as uuidv4 } from 'uuid';
 
 
 export const Board = ({isHide}) => {
@@ -15,9 +14,9 @@ export const Board = ({isHide}) => {
   const dispatch = useDispatch();
   const listName = useRef();
 
-  const AddList = (newList) =>{
+  const AddList = (newList , uuid) =>{
     if(newList != ""){
-        dispatch(boardListAdd(newList)) 
+        dispatch(boardListAdd(newList , uuid)) 
         listName.current.value= "";
         listName.current.focus();       
     }
@@ -38,7 +37,7 @@ export const Board = ({isHide}) => {
               />
               <section className="addList-section-btn mt-2 mb-3">
                 <button
-                  onClick={() => AddList(listName.current.value)}
+                  onClick={() => AddList(listName.current.value , uuidv4())}
                   id="addBtn"
                   className=" px-3"
                 >

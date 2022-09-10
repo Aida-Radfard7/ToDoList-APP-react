@@ -1,6 +1,6 @@
 import { CHANGE_THEME , DARK_MODE } from "../actions/actionTypes";
 
-const themeReducer = function( state = [] , action){
+const themeReducer = function( state = ["rgb(173, 29, 53)"] , action){
     switch (action.type){
         case CHANGE_THEME :
             state.splice(0 , 1 , action.payload)

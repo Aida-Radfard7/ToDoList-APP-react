@@ -11,10 +11,10 @@ export const Welcome = ({isHide,isDark}) => {
 
     const login = useSelector((store) => store.loginState);
     let welcomeText = ''
-    {login[0] ? welcomeText=`Welcome Back` : welcomeText="Welcome"}
-    // let welcomeText = `Welcome ${login.username}`;
+    {login[0] ?  welcomeText=`Welcome Back ${login[0].username}` : welcomeText="Welcome"}
+    // {login[0] ? welcomeText=`Welcome Back` : welcomeText="Welcome"}
     var text = welcomeText.split("")
-    console.log(login)
+    
     function typeText() {
         var i = 0;
         var paragText = "";

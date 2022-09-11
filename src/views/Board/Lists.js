@@ -74,8 +74,9 @@ export const Lists = ({isDark}) => {
 
                     <section className="list-title py-2">
                         <button onClick={() => deleteList(index)}><i className="fas fa-trash"></i></button>
-                            <p className="list-title-text mb-0">{item.title}</p>
-                            <button onClick={() => editListName(item.title , index ,item.id)}><i className="fas fa-edit"></i></button>
+                        <p className="list-title-text list-title-tooltip mb-0">{item.title}</p>
+                        <span class="list-title-tooltip-text">{item.title}</span>
+                        <button onClick={() => editListName(item.title , index ,item.id)}><i className="fas fa-edit"></i></button>
                     </section>
 
                     <section className="list-content">

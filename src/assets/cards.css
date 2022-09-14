@@ -1,5 +1,6 @@
 .cards{
-    height: 480px;
+    /* height: 480px; */
+    height:max-content;
     overflow-y: auto;
     max-width: 250px;
 }
